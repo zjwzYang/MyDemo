@@ -77,6 +77,11 @@ public class ArrowTextView extends android.support.v7.widget.AppCompatTextView {
         super.onDraw(canvas);
     }
 
+    public void setNeedBg(boolean needBg) {
+        isNeedBg = needBg;
+        invalidate();
+    }
+
     public void setBgColor(String color) {
         paint.setColor(Color.parseColor(color));
     }

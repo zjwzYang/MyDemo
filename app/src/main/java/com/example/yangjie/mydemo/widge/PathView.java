@@ -150,11 +150,12 @@ public class PathView extends View {
     }
 
     public boolean setCurrPos(int currPos) {
-        if (currPos == 0) {
-            this.currPos = currPos;
-            invalidate();
-            return true;
-        } else if (currPos < position) {
+//        if (currPos == 0) {
+//            this.currPos = currPos;
+//            invalidate();
+//            return true;
+//        } else
+        if (currPos <= position) {
             isAnimator = true;
             this.currPos = currPos;
             startAnimator();
@@ -162,6 +163,10 @@ public class PathView extends View {
         } else {
             return false;
         }
+    }
+
+    public int getCurrPos() {
+        return currPos;
     }
 
     private void startAnimator() {
