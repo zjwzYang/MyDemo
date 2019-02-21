@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/animator_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="缩放" />
+
+    <Button
+        android:id="@+id/animator_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/animator_one"
+        android:text="移动" />
+
+    <Button
+        android:id="@+id/animator_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/animator_two"
+        android:text="透明度" />
+
+    <TextView
+        android:id="@+id/animator_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#FFCCCC"
+        android:padding="10dp"
+        android:text="测试测试" />
+
+    <TextView
+        android:id="@+id/animator_text_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFCCCC"
+        android:padding="10dp"
+        android:text="移动测试" />
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.yangjie.mydemo.widge.MyView
+        android:id="@+id/second_myview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/second_erjian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="二阶" />
+
+    <Button
+        android:id="@+id/second_sanjian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/second_erjian"
+        android:text="三阶" />
+
+    <Button
+        android:id="@+id/second_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/second_sanjian"
+        android:text="下一页" />
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示对话框"/>
+
+    <Button
+        android:id="@+id/btnLoadPatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载补丁"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnDownloadPatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手动下载"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnPatchDownloaded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手动合成"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="曲线下一页"/>
+
+    <Button
+        android:id="@+id/btnNext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画下一页"/>
+
+    <Button
+        android:id="@+id/btnNext3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="数字下一页"/>
+
+    <Button
+        android:id="@+id/btnNext4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="网页下一页"/>
+
+    <Button
+        android:id="@+id/btnNext5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="音乐播放"/>
+
+</LinearLayout>
