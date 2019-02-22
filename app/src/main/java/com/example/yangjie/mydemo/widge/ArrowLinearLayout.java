@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.text.SimpleDateFormat;
@@ -50,10 +51,9 @@ public class ArrowLinearLayout extends LinearLayout implements View.OnClickListe
         int currPos = mPathView.getCurrPos();
         for (int i = 0; i < position; i++) {
             ArrowTextView arrowTextView = new ArrowTextView(getContext());
-            LayoutParams layoutParams = new LayoutParams(0, dip2px(40), 1.0f);
+            LayoutParams layoutParams = new LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f);
             arrowTextView.setLayoutParams(layoutParams);
             arrowTextView.setGravity(Gravity.CENTER);
-            arrowTextView.setBackgroundColor(Color.RED);
             if (i <= currPos) {
                 arrowTextView.setNeedBg(false);
                 arrowTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);

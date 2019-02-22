@@ -63,10 +63,10 @@ public class ArrowTextView extends android.support.v7.widget.AppCompatTextView {
             canvas.drawRoundRect(rect, 14, 14, paint);
 
             //以下是绘制文本的那个箭头
-            path.moveTo(width / 2, 0);// 三角形顶点
-            path.lineTo(width / 2 - arrowWid, arrowWid);   //三角形左边的点
+            path.moveTo(width / 2 - arrowWid, arrowWid);   //三角形左边的点
+            path.lineTo(width / 2, 0);// 三角形顶点
             path.lineTo(width / 2 + arrowWid, arrowWid);   //三角形右边的点
-            path.close();
+//            path.close();
             canvas.drawPath(path, paint);
 
             paint.setColor(Color.WHITE);
