@@ -56,12 +56,12 @@ public class PathView extends View {
         grayPaint = new Paint();
         grayPaint.setColor(Color.parseColor("#DCDCDC"));
         grayPaint.setStyle(Paint.Style.STROKE);
-        grayPaint.setStrokeWidth(10);
+        grayPaint.setStrokeWidth(dip2px(2f));
 
         greenPaint = new Paint();
         greenPaint.setColor(Color.parseColor("#34AD39"));
         greenPaint.setStyle(Paint.Style.STROKE);
-        greenPaint.setStrokeWidth(10);
+        greenPaint.setStrokeWidth(dip2px(2f));
     }
 
     @Override
@@ -82,7 +82,7 @@ public class PathView extends View {
         if (widthMode == MeasureSpec.EXACTLY) { // 父视图希望子视图的大小应该是specSize中指定的
             result = width;
         } else {
-            result = 70;
+            result = 60 + dip2px(2f);
             if (widthMode == MeasureSpec.AT_MOST) {
                 result = Math.min(result, width);
             }
@@ -277,5 +277,13 @@ public class PathView extends View {
 
     public interface OnItemChangeListener {
         void itemChange(int currPosition);
+    }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    private int dip2px(float dpValue) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }
