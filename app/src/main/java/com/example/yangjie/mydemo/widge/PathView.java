@@ -202,13 +202,15 @@ public class PathView extends View {
                 lineStopX = lineStartX + preWid / 2;
             }
             if (i == currPos) {
-                canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                 if (i == 0) {
                     lineStartX = preWid / 2 + preWid * i;
-                    lineStopX = lineStartX + preWid / 2;
+                    canvas.drawLine(lineStartX, circleY, lineStartX + preWid / 2, circleY, grayPaint);
+                    lineStopX = (int) (lineStartX + preWid / 2 * currProgress);
                 } else if (i == position - 1) {
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                     lineStopX = (int) (lineStartX + preWid / 2 * currProgress);
                 } else {
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                     lineStopX = (int) (lineStartX + preWid * currProgress);
                 }
                 canvas.drawLine(lineStartX, circleY, lineStopX, circleY, greenPaint);
