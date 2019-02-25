@@ -8,7 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,7 +19,7 @@ import com.example.yangjie.mydemo.R;
 
 /**
  * Created on 2019/2/19 13:53
- * .
+ * 进度view.
  *
  * @author yj
  * @org 浙江房超信息科技有限公司
@@ -31,6 +33,7 @@ public class PathView extends View {
 
     private Paint grayPaint;
     private Paint greenPaint;
+    private Path mPath;
 
     private int mWidth;
 
@@ -51,12 +54,13 @@ public class PathView extends View {
     }
 
     private void init(Context context) {
-        setBackgroundColor(Color.WHITE);
 
         grayPaint = new Paint();
         grayPaint.setColor(Color.parseColor("#DCDCDC"));
         grayPaint.setStyle(Paint.Style.STROKE);
         grayPaint.setStrokeWidth(dip2px(2f));
+        grayPaint.setPathEffect(new DashPathEffect(new float[]{20f, 10f}, 0));
+        mPath = new Path();
 
         greenPaint = new Paint();
         greenPaint.setColor(Color.parseColor("#34AD39"));
@@ -114,7 +118,10 @@ public class PathView extends View {
                 if (i == 0) {
                     lineStartX = preWid / 2 + preWid * i;
                     lineStopX = lineStartX + preWid / 2;
+                } else if (i == position - 2) {
+                    lineStopX = lineStopX - preWid / 2;
                 } else if (i == position - 1) {
+                    lineStartX = lineStartX - preWid / 2;
                     lineStopX = lineStopX - preWid / 2;
                 }
                 canvas.drawLine(lineStartX, circleY, lineStopX, circleY, greenPaint);
@@ -122,24 +129,50 @@ public class PathView extends View {
                 if (i == 0) {
                     lineStartX = preWid / 2 + preWid * i;
                     lineStopX = lineStartX + preWid / 2;
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
+                } else if (i == position - 2) {
+                    lineStopX = lineStartX + preWid / 2;
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                 } else if (i == position - 1) {
+                    lineStartX = lineStartX - preWid / 2;
                     lineStopX = lineStopX - preWid / 2;
+                    mPath.reset();
+                    mPath.moveTo(lineStartX, circleY);
+                    mPath.lineTo(lineStopX, circleY);
+                    canvas.drawPath(mPath, grayPaint);
+                } else {
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                 }
-                canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
             }
         }
     }
 
     private void drawCircle(Canvas canvas) {
         int preWid = mWidth / position;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.todo_icon);
-        int bWidth = bitmap.getWidth() / 2;
-        int bHeight = bitmap.getHeight() / 2;
-
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_icon);
-        int ieWidth = bitmap1.getWidth() / 2;
-        int ieHeight = bitmap1.getHeight() / 2;
         for (int i = 0; i < position; i++) {
+            Bitmap bitmap;
+            int bWidth;
+            int bHeight;
+            Bitmap bitmap1;
+            int ieWidth;
+            int ieHeight;
+            if (i != position - 1) {
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.todo_icon);
+                bWidth = bitmap.getWidth() / 2;
+                bHeight = bitmap.getHeight() / 2;
+
+                bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_icon);
+                ieWidth = bitmap1.getWidth() / 2;
+                ieHeight = bitmap1.getHeight() / 2;
+            } else {
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.to_do_tui_icon);
+                bWidth = bitmap.getWidth() / 2;
+                bHeight = bitmap.getHeight() / 2;
+
+                bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_tui_icon);
+                ieWidth = bitmap1.getWidth() / 2;
+                ieHeight = bitmap1.getHeight() / 2;
+            }
             int circleX = preWid / 2 + preWid * i;
             if (i <= currPos) {
                 canvas.drawBitmap(bitmap1, circleX - ieWidth, circleY - ieHeight, grayPaint);
@@ -206,9 +239,17 @@ public class PathView extends View {
                     lineStartX = preWid / 2 + preWid * i;
                     canvas.drawLine(lineStartX, circleY, lineStartX + preWid / 2, circleY, grayPaint);
                     lineStopX = (int) (lineStartX + preWid / 2 * currProgress);
-                } else if (i == position - 1) {
+                } else if (i == position - 2) {
+                    lineStopX = lineStartX + preWid / 2;
                     canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                     lineStopX = (int) (lineStartX + preWid / 2 * currProgress);
+                } else if (i == position - 1) {
+                    lineStartX = lineStartX - preWid / 2;
+                    mPath.reset();
+                    mPath.moveTo(lineStartX, circleY);
+                    mPath.lineTo(lineStopX, circleY);
+                    canvas.drawPath(mPath, grayPaint);
+                    lineStopX = (int) (lineStartX + preWid * currProgress);
                 } else {
                     canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                     lineStopX = (int) (lineStartX + preWid * currProgress);
@@ -218,28 +259,57 @@ public class PathView extends View {
                 if (i == 0) {
                     lineStartX = preWid / 2 + preWid * i;
                     lineStopX = lineStartX + preWid / 2;
+                } else if (i == position - 2) {
+                    lineStopX = lineStopX - preWid / 2;
                 }
                 canvas.drawLine(lineStartX, circleY, lineStopX, circleY, greenPaint);
             } else {
                 if (i == 0) {
                     lineStartX = preWid / 2 + preWid * i;
                     lineStopX = lineStartX + preWid / 2;
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
+                } else if (i == position - 2) {
+                    lineStopX = lineStartX + preWid / 2;
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
+                } else if (i == position - 1) {
+                    lineStartX = lineStartX - preWid / 2;
+                    mPath.reset();
+                    mPath.moveTo(lineStartX, circleY);
+                    mPath.lineTo(lineStopX, circleY);
+                    canvas.drawPath(mPath, grayPaint);
+                } else {
+                    canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
                 }
-                canvas.drawLine(lineStartX, circleY, lineStopX, circleY, grayPaint);
             }
         }
     }
 
     private void drawCircleWithAnimator(Canvas canvas) {
         int preWid = mWidth / position;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.todo_icon);
-        int bWidth = bitmap.getWidth() / 2;
-        int bHeight = bitmap.getHeight() / 2;
-
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_icon);
-        int ieWidth = bitmap1.getWidth() / 2;
-        int ieHeight = bitmap1.getHeight() / 2;
         for (int i = 0; i < position; i++) {
+            Bitmap bitmap;
+            int bWidth;
+            int bHeight;
+            Bitmap bitmap1;
+            int ieWidth;
+            int ieHeight;
+            if (i != position - 1) {
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.todo_icon);
+                bWidth = bitmap.getWidth() / 2;
+                bHeight = bitmap.getHeight() / 2;
+
+                bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_icon);
+                ieWidth = bitmap1.getWidth() / 2;
+                ieHeight = bitmap1.getHeight() / 2;
+            } else {
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.to_do_tui_icon);
+                bWidth = bitmap.getWidth() / 2;
+                bHeight = bitmap.getHeight() / 2;
+
+                bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.already_tui_icon);
+                ieWidth = bitmap1.getWidth() / 2;
+                ieHeight = bitmap1.getHeight() / 2;
+            }
             int circleX = preWid / 2 + preWid * i;
             if (i == currPos && i == position - 1 && currProgress - 0.98 > 0) {
                 canvas.drawBitmap(bitmap1, circleX - ieWidth, circleY - ieHeight, grayPaint);
