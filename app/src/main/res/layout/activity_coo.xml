@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/coo_toollayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/coo_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                app:layout_collapseMode="pin"></android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/coo_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="72dp"
+        app:layout_behavior="com.example.yangjie.mydemo.widge.FabBehavior"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="#FFCCCC"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="这是一个底栏"
+        android:textColor="#ffffff"
+        app:layout_behavior="com.example.yangjie.mydemo.widge.MyBehavior" />
+
+</android.support.design.widget.CoordinatorLayout>

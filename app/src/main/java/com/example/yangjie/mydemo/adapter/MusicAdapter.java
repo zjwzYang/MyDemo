@@ -1,4 +1,4 @@
-package com.example.yangjie.mydemo;
+package com.example.yangjie.mydemo.adapter;
 
 import android.content.Context;
 import android.support.v4.media.MediaBrowserCompat;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.yangjie.mydemo.R;
 
 import java.util.ArrayList;
 import java.util.List;

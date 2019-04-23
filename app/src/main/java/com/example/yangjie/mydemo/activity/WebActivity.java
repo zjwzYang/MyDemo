@@ -36,7 +36,7 @@ public class WebActivity extends AppCompatActivity {
 
         OkHttpClient okHttpClient = new OkHttpClient();
         Request.Builder builder = new Request.Builder();
-        Request request = builder.url("http://172.16.138.234:8081/yj/test01?test01=123456")
+        Request request = builder.url("http://172.16.138.234:8080/test/api.do")
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override

@@ -15,7 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.example.yangjie.mydemo.MusicAdapter;
+import com.example.yangjie.mydemo.adapter.MusicAdapter;
 import com.example.yangjie.mydemo.MusicService;
 import com.example.yangjie.mydemo.R;
 
