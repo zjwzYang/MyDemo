@@ -28,18 +28,7 @@ public class MyBehavior extends CoordinatorLayout.Behavior<View> {
         return dependency instanceof AppBarLayout;
     }
 
-    //    @Override
-//    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int nestedScrollAxes) {
-//        Log.i("12345678", "MyBehavior: 3333");
-//        return super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, nestedScrollAxes);
-//    }
-//
-//    @Override
-//    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dx, int dy, int[] consumed) {
-//        super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
-//        Log.i("12345678", "onNestedPreScroll: " + dy);
-//    }
-//用于响应从属布局的变化
+    //用于响应从属布局的变化
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
         float translationY = Math.abs(dependency.getTop());//获取更随布局的顶部位置

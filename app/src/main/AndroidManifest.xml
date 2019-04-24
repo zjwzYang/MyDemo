@@ -38,7 +38,9 @@
         <activity android:name=".activity.NumberActivity" />
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.MusicActivity" />
+        <activity android:name=".activity.CoorDependActivity" />
         <activity android:name=".activity.CoorActivity" />
+        <activity android:name=".activity.CoorHeadActivity" />
 
         <service android:name=".MusicService">
             <intent-filter>
