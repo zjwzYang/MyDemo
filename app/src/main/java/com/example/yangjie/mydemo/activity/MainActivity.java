@@ -83,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CoorActivity.class));
             }
         });
+
+        findViewById(R.id.btnNext7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CustomerLayoutManagerActivity.class));
+            }
+        });
     }
 
     private void bug() {

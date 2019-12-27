@@ -32,6 +32,7 @@ public class WebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         mWebView = (WebView) findViewById(R.id.web_webview);
+        mWebView.loadUrl("file:////android_asset/index.html");
         //mWebView.loadUrl("http://172.16.138.234:8081/yj/test01?test01=123456");
 
         OkHttpClient okHttpClient = new OkHttpClient();
