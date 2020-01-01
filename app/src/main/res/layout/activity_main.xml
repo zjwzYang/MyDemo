@@ -73,4 +73,10 @@
         android:layout_height="wrap_content"
         android:text="自定义LayoutManager" />
 
+    <Button
+        android:id="@+id/btnNext8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义FLow" />
+
 </LinearLayout>

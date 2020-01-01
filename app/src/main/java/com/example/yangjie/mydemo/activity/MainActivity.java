@@ -90,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CustomerLayoutManagerActivity.class));
             }
         });
+
+        findViewById(R.id.btnNext8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, FlowActivity.class));
+            }
+        });
     }
 
     private void bug() {

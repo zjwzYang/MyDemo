@@ -39,6 +39,7 @@
         <activity android:name=".activity.CoorActivity" />
         <activity android:name=".activity.CoorHeadActivity" />
         <activity android:name=".activity.EditActivity" />
+        <activity android:name=".activity.FlowActivity"/>
         <activity android:name=".activity.CustomerLayoutManagerActivity"></activity>
 
         <service android:name=".MusicService">

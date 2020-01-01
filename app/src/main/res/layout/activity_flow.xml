@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.yangjie.mydemo.widge.CustomerFlowLayout
+        android:id="@+id/custom_flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5500FF00"
+        app:lineSpace="10dp"
+        app:rowSpace="5dp"></com.example.yangjie.mydemo.widge.CustomerFlowLayout>
+
+    <Button
+        android:id="@+id/flow_add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="点击" />
+
+</LinearLayout>
