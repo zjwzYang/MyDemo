@@ -26,6 +26,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/second_sanjian"
-        android:text="下一页" />
+        android:text="气泡消失" />
+
+    <Button
+        android:id="@+id/wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/second_next"
+        android:text="波浪" />
 
 </RelativeLayout>

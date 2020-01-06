@@ -29,7 +29,7 @@
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".activity.SecondActivity" />
         <activity android:name=".RedPointActivity" />
         <activity android:name=".activity.AnimatorActivity" />
         <activity android:name=".activity.NumberActivity" />
@@ -39,8 +39,9 @@
         <activity android:name=".activity.CoorActivity" />
         <activity android:name=".activity.CoorHeadActivity" />
         <activity android:name=".activity.EditActivity" />
-        <activity android:name=".activity.FlowActivity"/>
+        <activity android:name=".activity.FlowActivity" />
         <activity android:name=".activity.CustomerLayoutManagerActivity"></activity>
+        <activity android:name=".activity.WaveActivity" />
 
         <service android:name=".MusicService">
             <intent-filter>

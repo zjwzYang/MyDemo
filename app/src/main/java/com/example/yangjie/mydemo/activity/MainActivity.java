@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.example.yangjie.mydemo.BottomDialogFragment;
 import com.example.yangjie.mydemo.R;
-import com.example.yangjie.mydemo.SecondActivity;
 import com.tencent.bugly.beta.Beta;
 
 

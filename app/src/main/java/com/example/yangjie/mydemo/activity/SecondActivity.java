@@ -1,4 +1,4 @@
-package com.example.yangjie.mydemo;
+package com.example.yangjie.mydemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.yangjie.mydemo.R;
+import com.example.yangjie.mydemo.RedPointActivity;
 import com.example.yangjie.mydemo.widge.MyView;
 
 /**
@@ -40,6 +42,12 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SecondActivity.this, RedPointActivity.class));
+            }
+        });
+        findViewById(R.id.wave).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SecondActivity.this, WaveActivity.class));
             }
         });
     }
