@@ -56,8 +56,8 @@ public class WaveActionView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        waveWidth = getMeasuredWidth() / 3;
-        waveHeight = getMeasuredHeight() / 4;
+        waveWidth = getMeasuredWidth() / 2;
+        waveHeight = getMeasuredHeight() / 6;
 
         startAnimation();
     }
@@ -75,7 +75,7 @@ public class WaveActionView extends View {
         wavePath.reset();
         int start = -2 * waveWidth + value;
         wavePath.moveTo(start, waveHeight);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             if (i % 2 == 0) {
                 wavePath.quadTo(start + waveWidth * i + waveWidth / 2, 0,
                         start + waveWidth * (i + 1), waveHeight);
@@ -85,8 +85,8 @@ public class WaveActionView extends View {
             }
         }
 
-        wavePath.lineTo(waveWidth * 3, waveHeight * 4);
-        wavePath.lineTo(0, waveHeight * 4);
+        wavePath.lineTo(waveWidth * 3, waveHeight * 6);
+        wavePath.lineTo(0, waveHeight * 6);
         wavePath.close();
 
         canvas.drawPath(wavePath, wavePaint);
