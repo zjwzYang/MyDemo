@@ -42,6 +42,7 @@
         <activity android:name=".activity.FlowActivity" />
         <activity android:name=".activity.CustomerLayoutManagerActivity"></activity>
         <activity android:name=".activity.WaveActivity" />
+        <activity android:name=".activity.GravityActivity" />
 
         <service android:name=".MusicService">
             <intent-filter>
